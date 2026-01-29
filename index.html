@@ -38,20 +38,19 @@
           <p>Serving escrow agencies, lenders, estate attorneys, life insurance companies, medical facilities, hospitals, and individuals. On-time, bonded, and insured.</p>
           <a class="cta" href="#contact">Schedule a Signing</a>
         </div>
-        <div class="hero-illustration" aria-hidden="true">
-          <svg viewBox="0 0 240 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+        <div class="hero-illustration" aria-hidden="true" title="Notary illustration">
+          <!-- small decorative document + pen icon -->
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" width="64" height="64">
             <defs>
-              <linearGradient id="g1" x1="0" x2="1">
+              <linearGradient id="g2" x1="0" x2="1">
                 <stop offset="0" stop-color="#06b6d4"/>
                 <stop offset="1" stop-color="#7dd3fc"/>
               </linearGradient>
             </defs>
-            <rect x="8" y="22" width="160" height="112" rx="8" fill="#071228" stroke="rgba(255,255,255,0.03)"/>
-            <rect x="20" y="36" width="136" height="88" rx="6" fill="url(#g1)" opacity="0.08"/>
-            <path d="M36 64h104" stroke="rgba(255,255,255,0.08)" stroke-width="4" stroke-linecap="round"/>
-            <path d="M36 84h88" stroke="rgba(255,255,255,0.06)" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="188" cy="60" r="28" fill="url(#g1)" opacity="0.95"/>
-            <path d="M176 56l6 6 12-12" stroke="#072028" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <rect x="6" y="6" width="36" height="52" rx="3" fill="rgba(255,255,255,0.02)" stroke="rgba(255,255,255,0.05)"/>
+            <path d="M12 16h28" stroke="url(#g2)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 24h20" stroke="rgba(255,255,255,0.06)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M46 12l6 6-18 18-6 2 2-6z" fill="url(#g2)" opacity="0.95"/>
           </svg>
         </div>
       </section>
@@ -75,20 +74,30 @@
 
       <section id="contact" class="contact">
         <h3>Contact</h3>
-        <form id="contact-form" action="https://formspree.io/f/{your_form_id}" method="POST">
-          <div class="form-grid">
-            <label class="form-row"><span class="visually-hidden">Name</span><input type="text" name="name" placeholder="Your name" required></label>
-            <label class="form-row"><span class="visually-hidden">Email</span><input type="email" name="email" placeholder="you@example.com" required></label>
-            <label class="form-row"><span class="visually-hidden">Phone</span><input type="tel" name="phone" placeholder="(optional)" ></label>
-            <label class="form-row full"><span class="visually-hidden">Message</span><textarea name="message" placeholder="Tell me about your signing" rows="5" required></textarea></label>
+        <div class="contact-grid">
+          <div class="details">
+            <p><strong>Phone:</strong> <a href="tel:+19494181957">949‑418‑1957</a></p>
+            <p><strong>Email:</strong> <a href="mailto:connect@jdskyesolutions.com">connect@jdskyesolutions.com</a></p>
+            <p><strong>License:</strong> #2538333</p>
+            <p class="muted">Available for mobile signings across Orange County. Discreet, reliable service. Response within 24 hours.</p>
+            <p class="muted" style="margin-top:12px;font-size:0.95rem">If you'd prefer, you can email directly or call to schedule a signing.</p>
           </div>
-          <div class="form-actions">
-            <button type="submit" class="cta">Send Message</button>
-            <div id="form-status" role="status" aria-live="polite"></div>
-          </div>
-        </form>
 
-        <p class="alt-contact">Prefer direct contact? <strong>Call</strong> <a href="tel:+19494181957">949‑418‑1957</a> or <strong>Email</strong> <a href="mailto:connect@jdskyesolutions.com">connect@jdskyesolutions.com</a>.</p>
+          <form id="contact-form" class="contact-form" action="https://formspree.io/f/{your_form_id}" method="POST" novalidate>
+            <input type="text" name="_gotcha" style="display:none">
+            <div id="form-banner" class="form-banner" role="status" aria-live="polite"></div>
+            <div class="form-grid">
+              <label class="form-row"><input type="text" name="name" placeholder="Your name" required></label>
+              <label class="form-row"><input type="email" name="email" placeholder="you@example.com" required></label>
+              <label class="form-row"><input type="tel" name="phone" placeholder="Phone (optional)"></label>
+              <label class="form-row full"><textarea name="message" placeholder="Tell me about your signing" rows="5" required></textarea></label>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="cta">Send Message</button>
+              <div class="form-note muted">By submitting, you agree we may contact you about your request.</div>
+            </div>
+          </form>
+        </div>
       </section>
     </main>
 
@@ -102,15 +111,19 @@
       // update copyright year
       document.getElementById('year').textContent = new Date().getFullYear();
 
-      // Contact form handler (Formspree)
-      // Replace {your_form_id} in the form action with your real Formspree form id
+      // Contact form handler (Formspree) — uses #form-banner for messages
       (function(){
         const form = document.getElementById('contact-form');
         if (!form) return;
-        const status = document.getElementById('form-status');
+        const banner = document.getElementById('form-banner');
         form.addEventListener('submit', async function(e){
           e.preventDefault();
-          status.textContent = '';
+
+          // honeypot
+          if (form.querySelector('input[name="_gotcha"]').value) return;
+
+          banner.textContent = '';
+          banner.className = 'form-banner';
           const btn = form.querySelector('button[type="submit"]');
           btn.disabled = true;
           btn.setAttribute('aria-busy','true');
@@ -122,22 +135,21 @@
             const res = await fetch(action, {
               method: 'POST',
               body: formData,
-              headers: {
-                'Accept': 'application/json'
-              }
+              headers: { 'Accept': 'application/json' }
             });
             if (res.ok) {
-              status.textContent = 'Thanks — your message was sent! We will follow up soon.';
-              status.className = 'form-success';
+              banner.textContent = 'Thanks — your message was sent! Julia will follow up shortly.';
+              banner.classList.add('success');
               form.reset();
+              form.querySelector('input, textarea').focus();
             } else {
-              const data = await res.json();
-              status.textContent = (data && data.error) ? data.error : 'Sorry — there was a problem submitting the form.';
-              status.className = 'form-error';
+              const data = await res.json().catch(()=>({}));
+              banner.textContent = (data && data.error) ? data.error : 'Sorry — there was a problem submitting the form.';
+              banner.classList.add('error');
             }
-          }catch(err){
-            status.textContent = 'Network error — please try again or email connect@jdskyesolutions.com.';
-            status.className = 'form-error';
+          } catch (err){
+            banner.textContent = 'Network error — please try again or email connect@jdskyesolutions.com.';
+            banner.classList.add('error');
           }
 
           btn.disabled = false;

@@ -55,8 +55,23 @@ form#contact-form{display:block;margin-top:12px}
 .services .card{background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
 .services h3,.about h3,.contact h3{margin-top:0}
 .about{margin-top:22px;padding:18px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
-.contact{margin-top:18px;padding:18px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
-.site-footer{border-top:1px solid rgba(255,255,255,0.03);padding:18px 0;text-align:center;color:var(--muted);margin-top:32px}
+.contact{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:18px}
+.details{padding:18px;border-radius:10px;background:transparent}
+.details p{margin:6px 0;color:var(--text)}
+.details .muted{color:var(--muted);margin-top:8px}
+.contact-form{padding:8px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.02)}
+.form-banner{min-height:36px;padding:10px 12px;border-radius:8px;margin-bottom:10px;font-weight:600}
+.form-banner.success{background:linear-gradient(90deg,rgba(11,196,169,0.08),rgba(125,211,252,0.04));color:#b7f5e9;border:1px solid rgba(11,196,169,0.08)}
+.form-banner.error{background:linear-gradient(90deg,rgba(255,100,100,0.04),rgba(255,160,160,0.02));color:#ffd6d6;border:1px solid rgba(255,80,80,0.06)}
+.form-note{font-size:0.9rem;color:var(--muted)}
+
+.cta{display:inline-block;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#031022;padding:12px 20px;border-radius:12px;text-decoration:none;font-weight:800;border:none;box-shadow:0 14px 40px rgba(6,182,212,0.12);transition:transform .14s ease,box-shadow .14s ease}
+.cta:hover{transform:translateY(-3px);box-shadow:0 26px 60px rgba(6,182,212,0.16)}
+
+@media(min-width:880px){
+  .contact-grid{grid-template-columns:340px 1fr}
+}
 @media(min-width:880px){
   .hero{flex-direction:row;align-items:center;justify-content:space-between}
   .hero p{max-width:56%}
