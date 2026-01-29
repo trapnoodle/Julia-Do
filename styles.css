@@ -36,7 +36,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background-ima
 .contact-cta a{color:var(--white);text-decoration:none;padding:10px 14px;border-radius:8px;border:1px solid transparent;transition:all .18s ease}
 .contact-cta .phone{background:var(--crimson);color:var(--white);font-weight:600}
 .contact-cta .email{border:1px solid rgba(255,255,255,0.04);color:var(--steel)}
-.hero{margin:26px 0;padding:36px;border-radius:12px;background:var(--white);box-shadow:0 20px 50px rgba(11,12,15,0.08);display:flex;flex-direction:column;gap:18px;align-items:center;border:1px solid rgba(0,0,0,0.06);position:relative;overflow:hidden;color:var(--jet-black)}
+.hero{margin:26px 0;padding:36px;border-radius:12px;background:var(--card);box-shadow:0 20px 50px rgba(11,12,15,0.08);display:flex;flex-direction:column;gap:18px;align-items:center;border:1px solid rgba(0,0,0,0.06);position:relative;overflow:hidden;color:var(--white)}
 .hero h2{margin:0;font-size:2.1rem}
 .hero p{margin:0;color:var(--steel);max-width:64ch}
 .hero-illustration{width:240px;height:150px;display:flex;align-items:center;justify-content:center}
@@ -55,7 +55,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background-ima
   .services-list{grid-template-columns:repeat(2,minmax(240px,1fr));max-width:960px}
 }
 
-.about{margin-top:22px;padding:18px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+.about{margin-top:22px;padding:18px;border-radius:10px;background:var(--card);border:1px solid rgba(0,0,0,0.08);color:var(--white)}
 
 .contact{margin-top:18px;padding:20px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.08);box-shadow:0 8px 30px rgba(11,12,15,0.18);color:var(--white)}
 
@@ -80,8 +80,8 @@ form#contact-form{display:block;margin-top:12px}
 }
 .services .card{background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
 .services h3,.about h3,.contact h3{margin-top:0}
-.about{margin-top:22px;padding:18px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
-.contact{margin-top:18px;padding:18px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent);border:1px solid rgba(255,255,255,0.02)}
+.about{margin-top:22px;padding:18px;border-radius:10px;background:var(--card);border:1px solid rgba(0,0,0,0.08);color:var(--white)}
+.contact{margin-top:18px;padding:18px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.08);color:var(--white)}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:18px}
 .details{padding:18px;border-radius:10px;background:transparent}
 .details p{margin:6px 0;color:var(--white)}
