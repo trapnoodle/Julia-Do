@@ -13,10 +13,10 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"
 .wrapper{max-width:1000px;margin:0 auto;padding:28px}
 .site-header{position:sticky;top:20px;backdrop-filter:blur(8px);background:linear-gradient(180deg,rgba(7,16,38,0.72),rgba(7,16,38,0.45));padding:12px 0;border-radius:14px;box-shadow:0 8px 28px rgba(2,6,23,0.6);z-index:10}
 .header-inner{display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px;position:relative}
-.brand::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;margin-right:10px;box-shadow:0 6px 20px rgba(6,182,212,0.12)}
-.brand h1{margin:0;font-size:1.175rem;font-weight:700;letter-spacing:0.3px;color:var(--text)}
-.brand .tag{margin:2px 0 0;color:var(--muted);font-size:0.85rem}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:36px;height:36px;flex:0 0 36px;border-radius:50%}
+.brand h1{margin:0;font-size:1.125rem;font-weight:700;letter-spacing:0.2px;color:var(--text)}
+.brand .tag{margin:2px 0 0;color:var(--muted);font-size:0.83rem} 
 .contact-cta{display:flex;gap:10px;align-items:center}
 .contact-cta a{color:var(--text);text-decoration:none;padding:10px 14px;border-radius:8px;border:1px solid transparent;transition:all .18s ease}
 .contact-cta .phone{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#031022;font-weight:600}
@@ -32,11 +32,12 @@ body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"
 /* subtle page background texture */
 body::after{content:"";position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px);background-size:18px 18px;opacity:0.6;mix-blend-mode:overlay}
 .services{margin-top:22px;text-align:center}
-.services-list{display:inline-block;list-style:none;padding:0;margin:18px 0 0 0;max-width:720px;text-align:left}
-.services-list li{padding:12px 0;border-bottom:1px dashed rgba(255,255,255,0.03);position:relative;padding-left:28px;color:var(--muted);font-size:1rem}
+.services h3{font-size:1.5rem;margin-bottom:12px}
+.services-list{display:grid;grid-template-columns:1fr;gap:8px;padding:0;margin:18px auto 0;max-width:880px;list-style:none;text-align:left}
+.services-list li{padding:12px 18px;border-bottom:1px dashed rgba(255,255,255,0.03);position:relative;color:var(--muted);font-size:1rem}
 .services-list li::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--accent);position:absolute;left:8px;top:50%;transform:translateY(-50%);box-shadow:0 6px 20px rgba(6,182,212,0.08)}
 @media(min-width:880px){
-  .services-list{max-width:820px}
+  .services-list{grid-template-columns:repeat(2,minmax(240px,1fr));max-width:960px}
 }
 
 /* Contact form styles */
