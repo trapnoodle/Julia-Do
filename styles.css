@@ -63,6 +63,12 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background-ima
 
 .about{margin-top:22px;padding:18px;border-radius:10px;background:var(--card);border:1px solid rgba(0,0,0,0.08);color:var(--white)}
 
+/* About section photo */
+.about .about-photo{display:block;margin:12px auto 16px;width:160px;height:160px;object-fit:cover;border-radius:10px;border:1px solid rgba(255,255,255,0.04)}
+@media(min-width:880px){
+  .about .about-photo{float:right;width:140px;height:140px;margin-left:18px;margin-bottom:0}
+}
+
 .contact{margin-top:18px;padding:20px;border-radius:12px;background:var(--card);border:1px solid rgba(0,0,0,0.08);box-shadow:0 8px 30px rgba(11,12,15,0.18);color:var(--white)}
 
 /* Contact form styles */
