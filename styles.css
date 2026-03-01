@@ -49,7 +49,7 @@ body::after{content:"";position:fixed;inset:0;pointer-events:none;background-ima
 @media(min-width:880px){
   .hero{flex-direction:row;align-items:center;justify-content:space-between;gap:28px}
   .hero > div:first-child{flex:1;min-width:0}
-  .hero p{max-width:48ch}
+  .hero p{max-width:70ch}
   .hero-illustration{width:160px;height:160px;flex-shrink:0;align-self:center}
 }
 
